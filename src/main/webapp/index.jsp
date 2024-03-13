@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <head>
     <meta charset="utf-8">
@@ -30,11 +32,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="${pageContext.request.contextPath}/">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">User admin system</div>
         </a>
 
         <!-- Divider -->
@@ -42,9 +44,9 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/users/list">
+            <a class="nav-link" href="${pageContext.request.contextPath}/user/list">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>All users</span></a>
+                <span>All users dashboard</span></a>
         </li>
     </ul>
     <!-- End of Sidebar -->
@@ -61,9 +63,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">All users</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Add user</a>
+                    <h1 class="h3 mb-0 text-gray-800">Corp news</h1>
                 </div>
 
                 <!-- Content Row -->

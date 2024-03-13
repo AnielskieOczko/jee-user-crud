@@ -1,11 +1,11 @@
 package pl.coderslab.entities;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class User {
     private int id;
     private String userName;

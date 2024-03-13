@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,13 +14,13 @@
     <title>User administration system</title>
 
     <!-- Custom fonts for this template-->
-    <link href="theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="theme/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../theme/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -30,11 +33,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">All users dashboard</div>
         </a>
 
         <!-- Divider -->
@@ -42,11 +45,10 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/users/list">
+            <a class="nav-link" href="/user/list">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>All users</span></a>
         </li>
-
     </ul>
     <!-- End of Sidebar -->
 
@@ -69,7 +71,33 @@
 
                 <!-- Content Row -->
                 <div class="row">
-
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>user name</th>
+                                        <th>email</th>
+                                        <th>action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>${username}</td>
+                                        <td>rafalj@gmail.com</td>
+                                        <td>delete | edit | show</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -134,21 +162,21 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="theme/vendor/jquery/jquery.min.js"></script>
-<script src="theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../theme/vendor/jquery/jquery.min.js"></script>
+<script src="../theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="theme/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../theme/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="theme/js/sb-admin-2.min.js"></script>
+<script src="../theme/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="theme/vendor/chart.js/Chart.min.js"></script>
+<script src="../theme/vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="theme/js/demo/chart-area-demo.js"></script>
-<script src="theme/js/demo/chart-pie-demo.js"></script>
+<script src="../theme/js/demo/chart-area-demo.js"></script>
+<script src="../theme/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
