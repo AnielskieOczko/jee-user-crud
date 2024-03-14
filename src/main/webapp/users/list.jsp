@@ -89,7 +89,7 @@
                                     <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>${username}</td>
+                                        <td>Rafal</td>
                                         <td>rafalj@gmail.com</td>
                                         <td>delete | edit | show</td>
                                     </tr>
