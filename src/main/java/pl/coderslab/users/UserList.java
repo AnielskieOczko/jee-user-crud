@@ -29,9 +29,8 @@ public class UserList extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String userName = users[0].getUserName();
+
         req.setAttribute("users", users);
-        req.setAttribute("username", userName);
 
         getServletContext().getRequestDispatcher("/users/list.jsp").forward(req, resp);
     }

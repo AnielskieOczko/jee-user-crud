@@ -87,12 +87,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Rafal</td>
-                                        <td>rafalj@gmail.com</td>
-                                        <td>delete | edit | show</td>
-                                    </tr>
+                                    <c:forEach var="user" items="${users}">
+                                        <tr>
+                                            <td>${user.getId()}</td>
+                                            <td>${user.getUserName()}</td>
+                                            <td>${user.getEmail()}</td>
+                                            <td>delete | edit | show</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

@@ -23,9 +23,6 @@ public class AddUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("add user doGet running...");
         log.info(req.getParameter("user_login"));
-
-
-
         getServletContext().getRequestDispatcher("/users/addUserForm.jsp").forward(req, resp);
     }
 
@@ -40,7 +37,14 @@ public class AddUser extends HttpServlet {
         newUser.setUserName(userName);
         newUser.setEmail(userEmail);
         newUser.setPassword(userPassword);
-        log.info(userDao.create(newUser));
-        getServletContext().getRequestDispatcher("/users/list.jsp").forward(req, resp);
+        User createdUser = userDao.create(newUser);
+        log.info(createdUser);
+
+        if (createdUser.getId() > 0) {
+            resp.sendRedirect("/user/list");
+        } else {
+            req.setAttribute("error_create_user", "Error during user create, try again");
+            getServletContext().getRequestDispatcher("/users/addUserForm.jsp").forward(req, resp);
+        }
     }
 }
