@@ -64,43 +64,24 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">All users</h1>
-                    <a href="${pageContext.request.contextPath}/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Add user</a>
+                    <h1 class="h3 mb-0 text-gray-800">Edit user</h1>
+                    <a href="${pageContext.request.contextPath}/user/list" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Return to user list</a>
                 </div>
 
                 <!-- Content Row -->
-                <div class="row">
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>user name</th>
-                                        <th>email</th>
-                                        <th>action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="user" items="${users}">
-                                        <tr>
-                                            <td>${user.getId()}</td>
-                                            <td>${user.getUserName()}</td>
-                                            <td>${user.getEmail()}</td>
-                                            <td><a href=""> delete </a> | <a href="/user/edit"> edit </a> | <a href=""> show </a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="input-group">
+                    <!-- Form -->
+                    <form action="/user/edit" method="post">
+                        <input type="hidden" id="user_id" name="user_id" value="" class="input-group-text"><br>
+                        <label for="user_name" class="col-form-label-lg">User login:</label><br>
+                        <input type="text" id="user_name" name="user_name" value="" class="input-group-text" placeholder="add user name..."><br>
+                        <label for="user_email" class="col-form-label-lg">User email:</label><br>
+                        <input type="email" id="user_email" name="user_email" value="" class="input-group-text" placeholder="add email..."><br><br>
+                        <label for="user_password" class="col-form-label-lg">User password:</label><br>
+                        <input type="password" id="user_password" name="user_password" value="" class="input-group-text" placeholder="add password..."><br><br>
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </form>
                 </div>
 
                 <!-- Content Row -->
