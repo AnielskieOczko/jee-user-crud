@@ -25,14 +25,12 @@ public class UserList extends HttpServlet {
         try {
             users = userDao.findAll();
 
-            log.info(users[0]);
+//            log.info(users[1]);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String userName = users[0].getUserName();
-        req.setAttribute("users", users);
-        req.setAttribute("username", userName);
 
+        req.setAttribute("users", users);
         getServletContext().getRequestDispatcher("/users/list.jsp").forward(req, resp);
     }
 }

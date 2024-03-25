@@ -64,7 +64,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">All users</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Create new user</h1>
                     <a href="${pageContext.request.contextPath}/user/list" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                             class="fas fa-download fa-sm text-white-50"></i> Return to user list</a>
                 </div>
@@ -72,7 +72,7 @@
                 <!-- Content Row -->
                 <div class="input-group">
                     <!-- Form -->
-                    <form action="${pageContext.request.contextPath}/user/add" method="post">
+                    <form action="/user/add" method="post">
                         <label for="user_name" class="col-form-label-lg">User login:</label><br>
                         <input type="text" id="user_name" name="user_name" value="" class="input-group-text" placeholder="add user name..."><br>
                         <label for="user_email" class="col-form-label-lg">User email:</label><br>

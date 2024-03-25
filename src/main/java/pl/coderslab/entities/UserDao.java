@@ -39,8 +39,8 @@ public class UserDao {
     public User create(User user) {
         try (Connection conn = getConnection()) {
             PreparedStatement statement = conn.prepareStatement(CREATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, user.getUserName());
-            statement.setString(2, user.getEmail());
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getUserName());
             statement.setString(3, hashPassword(user.getPassword()));
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
