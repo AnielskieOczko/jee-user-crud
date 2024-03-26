@@ -33,4 +33,9 @@ public class UserList extends HttpServlet {
         req.setAttribute("users", users);
         getServletContext().getRequestDispatcher("/users/list.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
 }

@@ -92,7 +92,7 @@
                                             <td>${user.getId()}</td>
                                             <td>${user.getUserName()}</td>
                                             <td>${user.getEmail()}</td>
-                                            <td><a href=""> delete </a> | <a href="/user/edit"> edit </a> | <a href=""> show </a></td>
+                                            <td><a href=""> delete </a> | <a href="/user/edit?userid=${user.getId()}"> edit </a> | <a href=""> show </a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

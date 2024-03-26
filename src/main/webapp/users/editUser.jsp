@@ -73,11 +73,11 @@
                 <div class="input-group">
                     <!-- Form -->
                     <form action="/user/edit" method="post">
-                        <input type="hidden" id="user_id" name="user_id" value="" class="input-group-text"><br>
+                        <input type="hidden" id="user_id" name="user_id" value="${user.getId()}" class="input-group-text"><br>
                         <label for="user_name" class="col-form-label-lg">User login:</label><br>
-                        <input type="text" id="user_name" name="user_name" value="" class="input-group-text" placeholder="add user name..."><br>
+                        <input type="text" id="user_name" name="user_name" value="${user.getUserName()}" class="input-group-text" placeholder="add user name..."><br>
                         <label for="user_email" class="col-form-label-lg">User email:</label><br>
-                        <input type="email" id="user_email" name="user_email" value="" class="input-group-text" placeholder="add email..."><br><br>
+                        <input type="email" id="user_email" name="user_email" value="${user.getEmail()}" class="input-group-text" placeholder="add email..."><br><br>
                         <label for="user_password" class="col-form-label-lg">User password:</label><br>
                         <input type="password" id="user_password" name="user_password" value="" class="input-group-text" placeholder="add password..."><br><br>
                         <input type="submit" value="Submit" class="btn btn-primary">
