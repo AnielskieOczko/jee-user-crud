@@ -92,12 +92,10 @@ public class UserDao {
             int check = statement.executeUpdate();
 
             if (check == 1) {
-                System.out.printf("[UPDATE] User with id %s successfully updated%n", user.getId());
-                log.info("[UPDATE] User with id %s successfully updated%n", user.getId());
+                log.info("[UPDATE] User with id " + user.getId() + " successfully updated");
 
             } else {
-                System.out.printf("User with id %s not found in DB%n", user.getId());
-                log.info("User with id %s not found in DB%n", user.getId());
+                log.info("[UPDATE] User with id " + user.getId() + "NOT  updated");
             }
 
         } catch (SQLException ex) {
