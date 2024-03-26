@@ -16,7 +16,7 @@ import pl.coderslab.entities.UserDao;
 
 @WebServlet("/user/add")
 public class AddUser extends HttpServlet {
-    private static final Logger log = LogManager.getLogger(UserList.class);
+    private static final Logger log = LogManager.getLogger(AddUser.class);
     UserDao userDao = new UserDao();
 
     @Override

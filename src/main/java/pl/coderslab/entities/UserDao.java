@@ -1,6 +1,9 @@
 package pl.coderslab.entities;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.mindrot.jbcrypt.BCrypt;
+import pl.coderslab.users.EditUser;
 
 import java.sql.*;
 import java.util.Arrays;
@@ -9,7 +12,7 @@ import java.util.Arrays;
 import static pl.coderslab.utils.DbUtil.getConnection;
 
 public class UserDao {
-
+    private static final Logger log = LogManager.getLogger(UserDao.class);
     private static final String CREATE_USER_QUERY = """
             INSERT INTO users (email, username, password) VALUES (?, ?, ?);
             """;
@@ -39,8 +42,8 @@ public class UserDao {
     public User create(User user) {
         try (Connection conn = getConnection()) {
             PreparedStatement statement = conn.prepareStatement(CREATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getUserName());
+            statement.setString(1, user.getUserName());
+            statement.setString(2, user.getEmail());
             statement.setString(3, hashPassword(user.getPassword()));
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
@@ -79,25 +82,26 @@ public class UserDao {
         return null;
     }
 
-//    public void update(User user) throws SQLException {
-//        try (Connection conn = getConnection()) {
-//            PreparedStatement statement = conn.prepareStatement(UPDATE_USER_BY_ID);
-//            statement.setString(1,getDataFromUser("Please provide new user name:"));
-//            statement.setString(2, getDataFromUser("Please provide new email:"));
-//            statement.setString(3,hashPassword(getDataFromUser("Please provide new password:")));
-//            statement.setInt(4,user.getId());
-//            int check = statement.executeUpdate();
-//
-//            if (check == 1) {
-//                System.out.printf("[UPDATE] User with id %s successfully updated%n", user.getId());
-//            } else {
-//                System.out.printf("[UPDATE] User with id %s not found in DB%n", user.getId());
-//            }
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+    public void update(User user) throws SQLException {
+        try (Connection conn = getConnection()) {
+            PreparedStatement statement = conn.prepareStatement(UPDATE_USER_BY_ID);
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getUserName());
+            statement.setString(3,hashPassword(user.getUserName()));
+            statement.setInt(4,user.getId());
+            int check = statement.executeUpdate();
+
+            if (check == 1) {
+                log.info("[UPDATE] User with id " + user.getId() + " successfully updated");
+
+            } else {
+                log.info("[UPDATE] User with id " + user.getId() + "NOT  updated");
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public void delete(int userId) throws SQLException {
         try(Connection conn = getConnection()) {
