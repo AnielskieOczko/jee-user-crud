@@ -103,18 +103,21 @@ public class UserDao {
         }
     }
 
-    public void delete(int userId) throws SQLException {
+    public int delete(int userId) throws SQLException {
         try(Connection conn = getConnection()) {
             PreparedStatement statement = conn.prepareStatement(DELETE_USER_BY_ID);
             statement.setInt(1, userId);
             int check = statement.executeUpdate();
             if (check == 1) {
                 System.out.printf("[DELETE] User with id %s successfully deleted%n", userId);
+                return 1; // removed successfully
             } else {
                 System.out.printf("[DELETE] User with id %s does not exist%n", userId);
+                return 0; // not removed
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return 0;
         }
     }
 

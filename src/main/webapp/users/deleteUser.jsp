@@ -56,51 +56,40 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <!-- Main Content -->
         <div id="content">
-<%--            Header start--%>
-            <%@include file="/header.jsp"%>
-<%--            Header ends--%>
+            <%--            Header start--%>
+            <%@include file="/header.jsp" %>
+            <%--            Header ends--%>
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">${user_removed}</h1>
-                    <h1 class="h3 mb-0 text-gray-800">All users</h1>
-                    <a href="${pageContext.request.contextPath}/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Add user</a>
+                    <h1 class="h3 mb-0 text-gray-800">Edit user</h1>
+                    <a href="${pageContext.request.contextPath}/user/list"
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-download fa-sm text-white-50"></i> Return to user list</a>
                 </div>
 
                 <!-- Content Row -->
-                <div class="row">
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>user name</th>
-                                        <th>email</th>
-                                        <th>action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="user" items="${users}">
-                                        <tr>
-                                            <td>${user.getId()}</td>
-                                            <td>${user.getUserName()}</td>
-                                            <td>${user.getEmail()}</td>
-                                            <td><a href="/user/delete?userid=${user.getId()}"> delete </a> | <a href="/user/edit?userid=${user.getId()}"> edit </a> | <a href=""> show </a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                <div class="input-group">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>user name</th>
+                            <th>email</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>${user.getId()}</td>
+                            <td>${user.getUserName()}</td>
+                            <td>${user.getEmail()}</td>
+                            <td>${user_removed}</td>
+                        </tr>
+                        </tbody>
+                    </table>
 
                 </div>
 
